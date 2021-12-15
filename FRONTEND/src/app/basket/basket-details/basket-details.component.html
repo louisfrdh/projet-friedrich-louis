@@ -1,0 +1,6 @@
+<p>Il y a {{nbProducts$|async}} produit(s) dans le panier</p>
+<div *ngFor="let p of products$ | async">
+    <div>
+        <p>Maillot de {{p.team}} : {{p.price}}€</p>
+    </div>
+</div>
