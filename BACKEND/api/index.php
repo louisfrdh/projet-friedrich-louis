@@ -12,45 +12,59 @@ $app->get('/api/hello/{login}', function (Request $request, Response $response, 
 
 // require '/vendor/autoload.php';
 // $app = new \Slim\App();
+/////////////////////////////////////////////////////////////////////////////////
+// $host = "tai.db.elephantsql.com";
+// $user = "odpbaryq";
+// $pass = "eH4CRAmjlQZv2zS7DK9t8EgQqg63EbXq";
+// $db = "odpbaryq";
 
-// $app->get('/client/{id}', 'getClient');
-// $app->post('/client', 'addClient');
-// $app->put('/client/{id}', 'updateClient');
-// $app->delete('/client/{id}', 'deleteClient');
+// $connection = pg_connect("host=$host dbname=$db user=$user password=$pass")
+// or die ("Could not connect to server\n");
+/////////////////////////////////////////////////////////////////////////////
+$clientRepository = $entityManager->getRepository('Client');
+$clients = $clientRepository->findAll();
+
+$app->get('/api/client/{id}', 'getClient');
+$app->post('/api/client', 'addClient');
+$app->put('/api/client/{id}', 'updateClient');
+$app->delete('/api/client/{id}', 'deleteClient');
 
 
 // // Run app
 $app->run();
 
-// function getClient($request,$response,$args) {
-//     $id = $args['id'];
-//     // RECHERCHE
+function getClient($request,$response,$args) {
+    $id = $args['id'];
+    // RECHERCHE
     
-//     return $response->getBody()->write (json_encode($client));
-// }
+    return $response->getBody()->write (json_encode($client));
+}
     
-// function addClient($request,$response,$args) {
-//     $body = $request->getParsedBody(); // Parse le body
-//     $nom = $body['nom']; // Data du formulaire
+function addClient($request,$response,$args) {
+    $body = $request->getParsedBody(); // Parse le body
+    $nom = $body['nom']; // Data du formulaire
     
-//     // AJOUT
+    // AJOUT
     
-//     return $response->getBody()-> write ("");
-// }
+    return $response->getBody()-> write ("");
+}
 
-// function updateClient($request,$response,$args) {
-//     $id = $args['id'];
-//     $body = $request->getParsedBody();
-//     $nom = $body['nom'];
-//     // Mise a jour
+function updateClient($request,$response,$args) {
+    $id = $args['id'];
+    $body = $request->getParsedBody();
+    $nom = $body['nom'];
+    // Mise a jour
     
-//     return $response->getBody()-> write ("");
-// }
+    return $response->getBody()-> write ("");
+}
 
-// function deleteClient($request,$response,$args) {
-//     $id = $args['id'];
-//     // Suppression
+function deleteClient($request,$response,$args) {
+    $id = $args['id'];
+    // Suppression
     
-//     return $response->getBody()->write ("");
-// }
-?>
+    return $response->getBody()->write ("");
+}
+
+function init() {
+
+}
