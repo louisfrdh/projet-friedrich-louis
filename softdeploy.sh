@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-cd dist/tp
-cp -r ../../../BACKEND/api .
-cp ../../../BACKEND/composer* .
-cp ../../../BACKEND/.htaccess .
+cd dist
+cp -r ../BACKEND/* .
+cp -r ../BACKEND/.htaccess .
 heroku git:remote -a projet-friedrich-louis
 git add .
 git commit -m "commit"
