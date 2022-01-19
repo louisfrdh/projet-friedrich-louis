@@ -10,26 +10,27 @@ import { Client } from './client';
 })
 export class ClientService {
   clientApiUrl: string = 'https://projet-friedrich-louis.herokuapp.com/api/client/';
+  httpOptions = {
+    // headers: new HttpHeaders({"Content-Type": "application/x-www-form-urlencoded"})
+    headers: new HttpHeaders({"Content-Type": "application/json"})
+  };
 
   constructor(private httpClient: HttpClient) { }
 
 
   public login(login: string, password: string): Observable<Client>{
-    console.log('request put to ' + this.clientApiUrl + 'login');
-    return this.httpClient.post<Client>(
+    return this.httpClient.post<any>(
       this.clientApiUrl + 'login',
-      // data
-      // {'login': login, 'password': password}
       JSON.stringify(
-        {'login': login, 'password': password}
-      )
+        {login: login, password: password}
+      ),
+      this.httpOptions
     ).pipe(
         map((client) => {
           console.log(client);
           return client;
         })
       );
-    
   }
 
   public addClient(client: Client) {
@@ -38,8 +39,13 @@ export class ClientService {
   }
 
   public saveClient(client: Observable<Client>) {
-    let id = client.pipe(map(client => client.id));
-    console.log('request put to ' + this.clientApiUrl + id);
-    return this.httpClient.put<Client>(this.clientApiUrl + id, client);
+    // let id = client.pipe(map(client => client.id));
+    console.log('request put to ' + this.clientApiUrl + 1);
+    console.log(client);
+    client.pipe(map((c)=> {
+      console.log(c);
+      // return this.httpClient.put<Client>(this.clientApiUrl + c.id, c, this.httpOptions);
+    }));
+    // return this.httpClient.put<Client>(this.clientApiUrl + 1, client);
   }
 }

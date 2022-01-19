@@ -31,9 +31,9 @@ export class AccountFormComponent implements OnInit {
 
   onSubmit(){
     this.valid = true;
-    console.log( this.clientService.addClient(new Client
-      (this.firstname, this.lastname, this.login, this.password)
-    ));
+    // console.log( this.clientService.addClient(new Client
+      // (this.firstname, this.lastname, this.login, this.password)
+    // ));
   }
   
   ngOnInit(): void {

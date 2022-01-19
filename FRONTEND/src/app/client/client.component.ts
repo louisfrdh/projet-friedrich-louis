@@ -13,8 +13,6 @@ export class ClientComponent implements OnInit {
   constructor(private clientService: ClientService) { }
 
   client$: Observable<Client>;
-  // client: Client;
-
   login : string = "";
   password : string = "";
 
@@ -26,8 +24,8 @@ export class ClientComponent implements OnInit {
       // this.clientService.login(this.login, this.password).subscribe(
       //   (response) => {this.client = response}
       // );
-      console.log(this.client$);
     } else {
+      console.log(this.client$);
       this.clientService.saveClient(this.client$);
     }
   }
