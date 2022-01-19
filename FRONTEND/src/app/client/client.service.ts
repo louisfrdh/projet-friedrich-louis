@@ -27,7 +27,6 @@ export class ClientService {
       this.httpOptions
     ).pipe(
         map((client) => {
-          console.log(client);
           return client;
         })
       );
@@ -39,13 +38,11 @@ export class ClientService {
   }
 
   public saveClient(client: Observable<Client>) {
-    // let id = client.pipe(map(client => client.id));
     console.log('request put to ' + this.clientApiUrl + 1);
     console.log(client);
     client.pipe(map((c)=> {
       console.log(c);
-      // return this.httpClient.put<Client>(this.clientApiUrl + c.id, c, this.httpOptions);
+      return this.httpClient.put<Client>(this.clientApiUrl + c.id, c, this.httpOptions);
     }));
-    // return this.httpClient.put<Client>(this.clientApiUrl + 1, client);
   }
 }

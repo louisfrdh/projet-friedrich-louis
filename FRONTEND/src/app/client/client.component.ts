@@ -21,9 +21,6 @@ export class ClientComponent implements OnInit {
   onSubmit(){
     if(!this.client$) {
       this.client$ = this.clientService.login(this.login, this.password);
-      // this.clientService.login(this.login, this.password).subscribe(
-      //   (response) => {this.client = response}
-      // );
     } else {
       console.log(this.client$);
       this.clientService.saveClient(this.client$);
