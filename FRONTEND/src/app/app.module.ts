@@ -16,11 +16,12 @@ import { BasketDetailsComponent } from './basket/basket-details/basket-details.c
 import { BasketAddComponent } from './basket/basket-add/basket-add.component';
 import { BasketRemoveComponent } from './basket/basket-remove/basket-remove.component';
 import { RouterModule, Routes } from '@angular/router';
+import { ClientComponent } from './client/client.component';
 
 
 
 const appRoutes: Routes = [
-  {path: 'client', component: AccountFormComponent},
+  {path: 'client', component: ClientComponent},
   {path: 'catalog', component: CatalogComponent},
   {path: 'basket', component: BasketDetailsComponent}
 ]
@@ -36,7 +37,8 @@ const appRoutes: Routes = [
     FilterPipe,
     BasketDetailsComponent,
     BasketAddComponent,
-    BasketRemoveComponent
+    BasketRemoveComponent,
+    ClientComponent
   ],
   imports: [
     BrowserModule,

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: '../assets/mocks/products.json'
+  baseUrl: '../assets/mocks/products.json',
+  clientApiUrl: 'https://projet-friedrich-louis.herokuapp.com/api/client/'
 };
 
 /*
